@@ -95,23 +95,25 @@ namespace CameraPlus
 
 		public void ReadIni()
 		{
-			FOV = Convert.ToSingle(Plugin.Ini.GetValue("fov", "", "90"));
-			PosSmooth = Convert.ToSingle(Plugin.Ini.GetValue("positionSmooth", "", "10"));
-			RotSmooth = Convert.ToSingle(Plugin.Ini.GetValue("rotationSmooth", "", "5"));
+			FOV = Convert.ToSingle(Plugin.Ini.GetValue("fov", "", "90"), System.Globalization.CultureInfo.InvariantCulture);
+			PosSmooth = Convert.ToSingle(Plugin.Ini.GetValue("positionSmooth", "", "10"), System.Globalization.CultureInfo.InvariantCulture);
+			RotSmooth = Convert.ToSingle(Plugin.Ini.GetValue("rotationSmooth", "", "5"), System.Globalization.CultureInfo.InvariantCulture);
 
-			ThirdPerson = Convert.ToBoolean(Plugin.Ini.GetValue("thirdPerson", "", "false"));
+			ThirdPerson = Convert.ToBoolean(Plugin.Ini.GetValue("thirdPerson", "", "false"), System.Globalization.CultureInfo.InvariantCulture);
 			_cameraCube.gameObject.SetActive(ThirdPerson);
+            
+            
 			ThirdPersonPos = new Vector3(
-				Convert.ToSingle(Plugin.Ini.GetValue("posx", "", "0")),
-				Convert.ToSingle(Plugin.Ini.GetValue("posy", "", "2")),
-				Convert.ToSingle(Plugin.Ini.GetValue("posz", "", "-1"))
+				Convert.ToSingle(Plugin.Ini.GetValue("posx", "", "0"), System.Globalization.CultureInfo.InvariantCulture),
+				Convert.ToSingle(Plugin.Ini.GetValue("posy", "", "2"), System.Globalization.CultureInfo.InvariantCulture),
+				Convert.ToSingle(Plugin.Ini.GetValue("posz", "", "-1"), System.Globalization.CultureInfo.InvariantCulture)
 			);
 			
 			ThirdPersonRot = new Quaternion(
-				Convert.ToSingle(Plugin.Ini.GetValue("rotx", "", "0.25")),
-				Convert.ToSingle(Plugin.Ini.GetValue("roty", "", "0")),
-				Convert.ToSingle(Plugin.Ini.GetValue("rotz", "", "0")),
-				Convert.ToSingle(Plugin.Ini.GetValue("rotw", "", "1"))
+				Convert.ToSingle(Plugin.Ini.GetValue("rotx", "", "0.25"), System.Globalization.CultureInfo.InvariantCulture),
+				Convert.ToSingle(Plugin.Ini.GetValue("roty", "", "0"), System.Globalization.CultureInfo.InvariantCulture),
+				Convert.ToSingle(Plugin.Ini.GetValue("rotz", "", "0"), System.Globalization.CultureInfo.InvariantCulture),
+				Convert.ToSingle(Plugin.Ini.GetValue("rotw", "", "1"), System.Globalization.CultureInfo.InvariantCulture)
 			);
 
 			SetFOV();
